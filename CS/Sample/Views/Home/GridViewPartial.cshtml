@@ -1,0 +1,66 @@
+﻿@using Sample.Models
+@using DevExpress.Data
+@using Sample.App_Code
+
+@Html.DevExpress().GridView(settings => {
+    settings.Name = "grid";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+
+    settings.Columns.Add("ProductID");
+    settings.Columns.Add("ProductName");
+    settings.Columns.Add(column => {
+        column.FieldName = "CategoryID";
+        column.Caption = "Category";
+        column.EditorProperties().ComboBox(p => {
+            p.TextField = "CategoryName";
+            p.ValueField = "CategoryID";
+            p.ValueType = typeof(int);
+            p.DataSource = NorthwindDataModel.GetCategories();
+        });
+        column.GroupIndex = 0;
+    });
+
+    settings.Columns.Add("SupplierID").GroupIndex = 1;
+    settings.Columns.Add("QuantityPerUnit");
+    settings.Columns.Add("UnitPrice");
+    settings.Columns.Add("UnitsOnOrder");
+    settings.Columns.Add("ReorderLevel");
+    settings.Columns.Add("Discontinued", MVCxGridViewColumnType.CheckBox);
+
+    settings.GroupSummary.Add(SummaryItemType.Min, "UnitPrice");
+    settings.GroupSummary.Add(SummaryItemType.Max, "UnitPrice");
+    settings.GroupSummary.Add(SummaryItemType.Max, "UnitsOnOrder");
+    settings.GroupSummary.Add(SummaryItemType.Count, "ProductID");
+
+    settings.Width = Unit.Percentage(100);
+    settings.Settings.ShowGroupPanel = true;
+    settings.ClientSideEvents.Init = "Grid_Init";
+    settings.ClientSideEvents.EndCallback = "Grid_EndCallback";
+    settings.ClientSideEvents.ColumnResized = "Grid_ColumnResized";
+
+    settings.Styles.Header.CssClass = "gridHeader";
+    settings.Styles.GroupRow.CssClass = "gridGroupRow";
+
+    if(ViewData["resizing"] != null) {
+        if (Convert.ToBoolean(ViewData["resizing"]) == true)
+            settings.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.NextColumn;
+        else
+            settings.SettingsBehavior.ColumnResizeMode = ColumnResizeMode.Disabled;
+    }
+
+    settings.SetGroupRowContentTemplateContent(c => {
+        GridGroupRowContentTemplate.Container = c;
+        ViewContext.Writer.Write(GridGroupRowContentTemplate.GetTemplateHtml());
+    });
+
+    settings.Init = (sender, e) => {
+        (sender as MVCxGridView).VisibleColumns[0].HeaderStyle.CssClass = "gridVisibleColumn";
+    };
+
+    settings.PreRender = (sender, e) => {
+        MVCxGridView grid = sender as MVCxGridView;
+        grid.ExpandRow(0);
+        grid.ExpandRow(1);
+    };
+
+}).Bind(NorthwindDataModel.GetProducts()).GetHtml()

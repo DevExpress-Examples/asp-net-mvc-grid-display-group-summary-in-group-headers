@@ -1,0 +1,27 @@
+﻿.summaryTable 
+{
+    border-width: 0;
+    border-spacing: 0;
+}
+.summaryTable td 
+{
+    padding: 0;
+}
+.summaryTable td .summaryTextContainer 
+{
+    overflow: hidden;
+    text-align: right;
+}
+.gridGroupRow td:last-child 
+{
+    padding: 0;
+}
+
+.summaryTable tr:last-child td:nth-of-type(even)
+{
+    background: #8EDC9D;
+}
+.summaryTable tr:last-child td:nth-of-type(odd)
+{
+    background: #F9E559;
+}
