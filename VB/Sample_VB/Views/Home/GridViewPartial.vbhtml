@@ -1,6 +1,6 @@
 ﻿@Imports Sample_VB
 @Imports DevExpress.Data
-@Imports Sample_VB.App_Code
+@Imports Sample_VB.Controllers
 
 @Html.DevExpress().GridView(
     Sub(settings)
