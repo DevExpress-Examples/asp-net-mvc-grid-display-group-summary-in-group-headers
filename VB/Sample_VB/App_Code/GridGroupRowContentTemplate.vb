@@ -72,6 +72,7 @@ Namespace Sample_VB.App_Code
         End Sub
 
         Private Shared Sub CreateSummaryTextCell(ByVal column As GridViewColumn)
+            If TypeOf column Is GridViewBandColumn Then Return
             Dim cell = CreateCell(SummaryTextRow)
             Dim dataColumn = TryCast(column, GridViewDataColumn)
             If dataColumn Is Nothing Then

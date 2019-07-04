@@ -56,6 +56,8 @@ namespace Sample.App_Code {
         }
 
         private static void CreateSummaryTextCell(GridViewColumn column) {
+            if (column is GridViewBandColumn)
+                return;
             var cell = CreateCell(SummaryTextRow);
             var dataColumn = column as GridViewDataColumn;
             if (dataColumn == null)
