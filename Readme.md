@@ -16,7 +16,7 @@
 <!-- default file list end -->
 # GridView - How to display a Group Summary in group headers
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t446118/)**
+**[[Run Online]](https://codecentral.devexpress.com/128549908/)**
 <!-- run online end -->
 
 
