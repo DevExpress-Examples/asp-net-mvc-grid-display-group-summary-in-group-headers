@@ -6,7 +6,7 @@
 
 # Grid View for ASP.NET MVC - How to display group summary in group headers
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t446118/)**
+**[[Run Online]](https://codecentral.devexpress.com/128549908/)**
 <!-- run online end -->
 
 [GridView](https://docs.devexpress.com/AspNetMvc/8966/components/grid-view) supports group footer summaries out of the box. It may be necessary to display group summaries in column headers separately for every group. This example demonstrates one of the possible solutions.
