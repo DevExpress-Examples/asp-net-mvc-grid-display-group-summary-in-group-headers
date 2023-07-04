@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# # Grid View for ASP.NET MVC - How to display group summary in group headers
+# Grid View for ASP.NET MVC - How to display group summary in group headers
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/t446118/)**
 <!-- run online end -->
