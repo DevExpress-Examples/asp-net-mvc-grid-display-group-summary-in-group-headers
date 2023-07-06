@@ -64,7 +64,7 @@ function AdjustSummaryTable() {
 
 ## CSS resources
 
-This solution contains several static CSS rules (see the [Styles.css](./CS/Styles.css) file). Use the following rules to set the cell background colors or just remove them to get the default background color.  
+This solution contains several static CSS rules (see the [Styles.css](./CS/Sample/Content/Styles.css) file). Use the following rules to set the cell background colors or just remove them to get the default background color.  
 
 ```css
 .summaryTable tr:last-child td:nth-of-type(even) {
